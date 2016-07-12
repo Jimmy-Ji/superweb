@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#submit").click(function() {
+                alert($("#form1").serialize());
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost:8080/superweb/hello.htm',
+                    data: $("#form1").serialize(),
+                    dataType: 'json',
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            });
+        });
+
+    </script>
+
+
+</head>
+<body>
+    <form id="form1" action="http://localhost:8080/superweb/hello.htm" name="form1" method="post">
+        <input value="" type="text" name="hello">
+        <input type="button" value="提交" id="submit">
+    </form>
+</body>
+</html>
